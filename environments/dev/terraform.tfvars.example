@@ -1,0 +1,7 @@
+# Example Terraform variable values for the dev environment.
+# Copy this file to terraform.tfvars and customize values for your environment.
+
+environment = "dev"
+# region      = "us-east-1"
+# project     = "platform"
+# owner       = "team@example.com"

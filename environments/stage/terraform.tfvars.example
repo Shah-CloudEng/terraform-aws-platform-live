@@ -1,0 +1,7 @@
+# Example Terraform variable values for the stage environment.
+# Copy this file to terraform.tfvars and customize values for your environment.
+
+environment = "stage"
+# region      = "us-east-1"
+# project     = "platform"
+# owner       = "team@example.com"
