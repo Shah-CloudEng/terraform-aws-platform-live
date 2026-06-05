@@ -2,9 +2,9 @@
 // This module is sourced from the terraform-aws-platform-modules repository.
 
 module "s3_bucket" {
-  source = "git::https://github.com/<MY_GITHUB_USERNAME>/terraform-aws-platform-modules.git//modules/s3-bucket?ref=main"
+  source = "git::https://github.com/Shah-CloudEng/terraform-aws-platform-modules.git//modules/s3-bucket?ref=main"
 
-  bucket_name         = var.bucket_name
+  name                = var.bucket_name
   environment         = var.environment
   versioning_enabled  = var.versioning_enabled
   block_public_access = var.block_public_access
