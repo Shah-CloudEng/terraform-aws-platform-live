@@ -1,7 +1,0 @@
-# Example Terraform variable values for the prod environment.
-# Copy this file to terraform.tfvars and customize values for your environment.
-
-environment = "prod"
-# region      = "us-east-1"
-# project     = "platform"
-# owner       = "team@example.com"

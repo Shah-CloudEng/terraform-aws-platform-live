@@ -2,40 +2,31 @@
 
 ## Purpose
 
-This repository is the live infrastructure deployment repository for the AWS platform. It contains environment-specific Terraform configurations that consume reusable platform modules from `terraform-aws-platform-modules`.
+This repository is a module testing repository for reusable Terraform modules. It is currently scoped to a single `dev` test environment and is not implementing `stage` or `prod` yet.
 
 ## Relationship with terraform-aws-platform-modules
 
-This repository does not contain reusable module implementations. Instead, it declares and composes infrastructure using shared, versioned modules maintained in the separate repository:
+This repository consumes shared infrastructure modules from the separate repository:
 
 - `terraform-aws-platform-modules`
 
-The live repository focuses on environment configuration, variable values, environment boundaries, and deployment orchestration.
+The focus is on validating module behavior and environment-specific configuration in a dedicated test harness.
 
-## Environment strategy
+## Current scope
 
-The repository is organized into separate environment workspaces:
+- Only `environments/dev` is implemented
+- `environments/stage` and `environments/prod` are planned for future expansion
+- Root-level Terraform files are removed so test configuration lives under `environments/dev`
 
-- `dev` for development and integration testing
-- `stage` for pre-production validation
-- `prod` for production
+## Testing workflow
 
-Each environment folder should define its own variable values and outputs while reusing the same module interfaces.
+Run Terraform from the `environments/dev` directory for module validation:
 
-## CI/CD approach
+- `terraform init`
+- `terraform validate`
+- `terraform plan`
+- `terraform apply`
 
-CI/CD pipelines should validate Terraform configuration, run `terraform fmt`, `terraform validate`, and `terraform plan` for each target environment. Automation should use remote state and approve changes before applying to production.
+## Future direction
 
-## Future deployment workflow
-
-A recommended future workflow includes:
-
-1. Maintain reusable modules in `terraform-aws-platform-modules`
-2. Pin module versions in the live environment configurations
-3. Use environment-specific variable files for each stage
-4. Execute `terraform init` and `terraform plan` in CI
-5. Apply changes through gated release processes for `prod`
-
----
-
-> Note: This repository is a live environment repository and is intentionally separate from reusable module source code.
+Stage and prod environments will be added later once the reusable module contracts are stabilized and the dev test harness is validated.

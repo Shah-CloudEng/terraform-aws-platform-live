@@ -1,7 +1,14 @@
 # Example Terraform variable values for the dev environment.
 # Copy this file to terraform.tfvars and customize values for your environment.
 
-environment = "dev"
-# region      = "us-east-1"
-# project     = "platform"
-# owner       = "team@example.com"
+bucket_name         = "platform-dev-s3-bucket"
+environment         = "dev"
+versioning_enabled  = true
+block_public_access = true
+force_destroy       = false
+
+tags = {
+  Environment = "dev"
+  Project     = "terraform-aws-platform-live"
+  Owner       = "platform-team@example.com"
+}

@@ -1,8 +1,11 @@
-// Placeholder outputs for the dev environment.
+// Outputs for the dev environment S3 bucket test harness.
 
-// Add environment outputs here once modules are instantiated.
+output "s3_bucket_name" {
+  description = "The name of the created S3 bucket."
+  value       = module.s3_bucket.bucket_name
+}
 
-output "environment_name" {
-  description = "The environment name for the dev deployment."
-  value       = var.environment
+output "s3_bucket_arn" {
+  description = "The ARN of the created S3 bucket."
+  value       = module.s3_bucket.bucket_arn
 }
